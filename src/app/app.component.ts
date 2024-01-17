@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { TestComponentComponent } from './Test/test-component/test-component.component';
-import { ManuallyComponent } from './TestManually/manually.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { ListComponent } from './Components/list/list.component';
+import { FormComponent } from './Components/form/form.component';
+import { TaskService } from './Service/task.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,12 @@ import { ManuallyComponent } from './TestManually/manually.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    HomeComponent,
-    TestComponentComponent,
-    ManuallyComponent,
+    HeaderComponent,
+    ListComponent,
+    FormComponent,
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'Hello Saifi';
-}
+export class AppComponent {}
