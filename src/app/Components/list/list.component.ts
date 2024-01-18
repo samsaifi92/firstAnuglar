@@ -11,15 +11,12 @@ import { Component, Input } from '@angular/core';
 })
 export class ListComponent {
   constructor(private TaskService: TaskService) {}
-  tasks: any;
+  @Input() tasks: any;
 
-  ngOnInit() {
-    this.getTask();
-  }
-  getTask() {
-    this.TaskService.getTasks().subscribe((result) => {
+  
+  deleteTask(task: any) {
+    this.TaskService.deleteTask(task).subscribe((result) => {
       console.log(result);
-      this.tasks = result;
     });
   }
 }

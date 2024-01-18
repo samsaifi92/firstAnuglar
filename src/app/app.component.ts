@@ -21,4 +21,20 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent {
+  tasks: any;
+  constructor(private TaskService: TaskService) {}
+  ngOnInit() {
+    this.getTask();
+  }
+
+  getTask() {
+    this.TaskService.getTasks().subscribe((result) => {
+      console.log(result);
+      this.tasks = result;
+    });
+  }
+  trackByFunc(index: number, task: any): number {
+    return task.id; // or unique identifier for the item
+  }
+}

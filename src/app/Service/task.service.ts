@@ -14,4 +14,8 @@ export class TaskService {
   setSearchText(data: string) {
     return this.httpClient.post(this.url, { title: data });
   }
+
+  deleteTask(data: any) {
+    return this.httpClient.delete(this.url + '/' + data);
+  }
 }
